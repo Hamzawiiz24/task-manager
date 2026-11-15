@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{baseUrl}}/api/projects"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Website Launch",
+      "description": "Ship the site"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{managerToken}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Status is 201', () => pm.response.to.have.status(201));
+      pm.collectionVariables.set('projectId', pm.response.json().id);
+    language: text/javascript
+order: 6000

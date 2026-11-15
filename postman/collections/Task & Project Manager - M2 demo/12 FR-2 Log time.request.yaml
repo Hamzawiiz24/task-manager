@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/api/tasks/{{taskId}}/time"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "hours": 2.5
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{memberToken}}"
+scripts:
+  - type: afterResponse
+    code: pm.test('Status is 200', () => pm.response.to.have.status(200));
+    language: text/javascript
+order: 12000

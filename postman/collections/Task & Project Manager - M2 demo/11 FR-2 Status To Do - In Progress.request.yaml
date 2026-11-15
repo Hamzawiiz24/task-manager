@@ -1,0 +1,23 @@
+$kind: http-request
+name: 11 FR-2 Status To Do > In Progress
+url: "{{baseUrl}}/api/tasks/{{taskId}}/status"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "status": "In Progress"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{memberToken}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Status is 200', () => pm.response.to.have.status(200));
+      pm.test('status updated', () => pm.expect(pm.response.json().status).to.eql('In Progress'));
+    language: text/javascript
+order: 11000

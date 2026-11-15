@@ -1,0 +1,8 @@
+$kind: collection
+description: Run the collection top to bottom (or use the Collection Runner). Each run creates fresh users via {{runId}}.
+variables:
+  baseUrl: http://localhost:3000
+scripts:
+  - type: http:beforeRequest
+    code: if (!pm.collectionVariables.get('runId')) pm.collectionVariables.set('runId', Date.now());
+    language: text/javascript

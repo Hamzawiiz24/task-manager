@@ -1,0 +1,27 @@
+:root { --ink:#1b2430; --muted:#556070; --line:#cfd6df; --bg:#f6f7f9; --card:#fff; --accent:#0b5cad; --ok:#116329; --err:#a4262c; }
+* { box-sizing: border-box; }
+body { margin:0; font:16px/1.5 system-ui, "Segoe UI", sans-serif; color:var(--ink); background:var(--bg); }
+header { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:.75rem 1.25rem; background:var(--ink); color:#fff; flex-wrap:wrap; }
+header h1 { font-size:1.2rem; margin:0; }
+main { max-width:60rem; margin:0 auto; padding:1rem; }
+h2 { margin-top:1.5rem; } h3 { margin:.2rem 0 .5rem; }
+.skip { position:absolute; left:-999px; } .skip:focus { left:1rem; top:1rem; background:#fff; padding:.5rem; z-index:10; }
+label { display:block; margin:.5rem 0; font-weight:600; }
+input, select { display:block; width:100%; max-width:24rem; padding:.45rem; margin-top:.2rem; border:1px solid var(--muted); border-radius:4px; font:inherit; background:#fff; }
+button { padding:.5rem .9rem; border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:4px; font:inherit; cursor:pointer; }
+button:hover { filter:brightness(1.1); }
+header button, nav button { background:transparent; color:inherit; border-color:currentColor; }
+nav { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:.5rem; }
+nav button { color:var(--accent); } nav button[aria-current="true"] { background:var(--accent); color:#fff; }
+:focus-visible { outline:3px solid #ffb000; outline-offset:2px; }
+.split { display:grid; grid-template-columns:repeat(auto-fit, minmax(16rem, 1fr)); gap:1.5rem; }
+.panel, .card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:1rem; margin:.75rem 0; }
+.row { display:flex; gap:.75rem; align-items:end; flex-wrap:wrap; } .row label { margin:0; }
+.badge { font-size:.8rem; border:1px solid currentColor; border-radius:3px; padding:0 .35rem; } .badge.High { color:var(--err); } .badge.Medium { color:#8a5a00; } .badge.Low { color:var(--ok); }
+#toast { margin:0; padding:.5rem 1.25rem; min-height:2.2rem; } #toast.ok { color:var(--ok); } #toast.err { color:var(--err); font-weight:600; }
+#badge { background:var(--err); color:#fff; border-radius:1rem; padding:0 .45rem; font-size:.8rem; }
+body[data-role="member"] .manager-only { display:none; }
+progress { width:100%; max-width:20rem; } table { border-collapse:collapse; width:100%; background:var(--card); }
+th, td { border:1px solid var(--line); padding:.4rem .6rem; text-align:left; }
+li.unread { font-weight:700; } ul { padding-left:1.1rem; }
+@media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }

@@ -1,0 +1,13 @@
+# Use this workspace to collaborate
+workspace:
+  id: 497a23e0-a2d0-43de-811e-a971bc736edb
+
+cloudResources:
+  collections:
+    ../postman/collections/Task & Project Manager - M2 demo: f5965cf1-71c5-44e0-a80f-2beb6eacbb38
+
+# All resources in the `postman/` folder are automatically registered in Local View.
+# Point to additional files outside the `postman/` folder to register them individually. Example:
+#localResources:
+#  collections:
+#    - ../tests/E2E Test Collection/
